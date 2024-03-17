@@ -1,6 +1,6 @@
 import Yup from "yup";
 
-export const userValidation = Yup.object({
+export const userRegisterValidation = Yup.object({
   firstName: Yup.string()
     .required("First name is required.")
     .trim()
@@ -20,4 +20,15 @@ export const userValidation = Yup.object({
     .trim()
     .min(8, "Password must be at least 8 characters long.")
     .max(32, "Password cannot be more than 32 characters."),
+});
+
+export const userLoginValidation = Yup.object({
+  email: Yup.string()
+    .required("Email is required.")
+    .email("Invalid email.")
+    .max(50, "Email cannot be more than 50 characters.")
+    .trim()
+    .lowercase()
+    .max(50, "Email cannot be more than 50 characters."),
+  password: Yup.string().required("Password is required.").trim(),
 });
