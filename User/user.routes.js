@@ -67,7 +67,7 @@ router.post(
 
     user.password = undefined;
 
-    //token = jwt.sign({payload}, {secret}, {expiresIn: "7d"})
+    //token = jwt.sign({payload}, "secret", {expiresIn: "7d"})
 
     const token = jwt.sign({ email: user.email }, "r41d5t3w9v2j3", { expiresIn: "7d" });
 
